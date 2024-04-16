@@ -1,101 +1,92 @@
-[![][kong-logo]][kong-url]
-
-![Stars](https://img.shields.io/github/stars/Kong/kong?style=flat-square) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Kong/kong?style=flat-square) ![Docker Pulls](https://img.shields.io/docker/pulls/_/kong?style=flat-square) [![Build Status][badge-action-image]][badge-action-url] ![Version](https://img.shields.io/github/v/release/Kong/kong?color=green&label=Version&style=flat-square)  ![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=flat-square)  ![Twitter Follow](https://img.shields.io/twitter/follow/thekonginc?style=social)
-
-
-**Kong** or **Kong API Gateway** is a cloud-native, platform-agnostic, scalable API Gateway distinguished for its high performance and extensibility via plugins. It also provides advanced AI capabilities with multi-LLM support.
-
-By providing functionality for proxying, routing, load balancing, health checking, authentication (and [more](#features)), Kong serves as the central layer for orchestrating microservices or conventional API traffic with ease.
-
-Kong runs natively on Kubernetes thanks to its official [Kubernetes Ingress Controller](https://github.com/Kong/kubernetes-ingress-controller).
-
----
-
-[Installation](https://konghq.com/install/#kong-community) | [Documentation](https://docs.konghq.com) | [Discussions](https://github.com/Kong/kong/discussions) | [Forum](https://discuss.konghq.com) | [Blog](https://konghq.com/blog) | [Builds][kong-master-builds]
-
----
-
-## Getting Started
-
-Let’s test drive Kong by adding authentication to an API in under 5 minutes.
-
-We suggest using the docker-compose distribution via the instructions below, but there is also a [docker installation](https://docs.konghq.com/gateway/latest/install/docker/#install-kong-gateway-in-db-less-mode) procedure if you’d prefer to run the Kong API Gateway in DB-less mode.
-
-Whether you’re running in the cloud, on bare metal, or using containers, you can find every supported distribution on our [official installation](https://konghq.com/install/#kong-community) page.
-
-1) To start, clone the Docker repository and navigate to the compose folder.
-```cmd
-  $ git clone https://github.com/Kong/docker-kong
-  $ cd docker-kong/compose/
-```
-
-2) Start the Gateway stack using:
-```cmd
-  $ KONG_DATABASE=postgres docker-compose --profile database up
-```
-
-The Gateway is now available on the following ports on localhost:
-
-- `:8000` - send traffic to your service via Kong
-- `:8001` - configure Kong using Admin API or via [decK](https://github.com/kong/deck)
-- `:8002` - access Kong's management Web UI ([Kong Manager](https://github.com/Kong/kong-manager)) on [localhost:8002](http://localhost:8002)
-
-Next, follow the [quick start guide](https://docs.konghq.com/gateway-oss/latest/getting-started/configuring-a-service/
-) to tour the Gateway features.
-
-## Features
-
-By centralizing common API functionality across all your organization's services, the Kong API Gateway creates more freedom for engineering teams to focus on the challenges that matter most.
-
-The top Kong features include:
-- Advanced routing, load balancing, health checking - all configurable via a RESTful admin API or declarative configuration.
-- Authentication and authorization for APIs using methods like JWT, basic auth, OAuth, ACLs and more.
-- Proxy, SSL/TLS termination, and connectivity support for L4 or L7 traffic.
-- Plugins for enforcing traffic controls, rate limiting, req/res transformations, logging, monitoring and including a plugin developer hub.
-- Plugins for AI traffic to support multi-LLM implementations and no-code AI use cases, with advanced AI prompt engineering, AI observability, AI security and more.
-- Sophisticated deployment models like Declarative Databaseless Deployment and Hybrid Deployment (control plane/data plane separation) without any vendor lock-in.
-- Native [ingress controller](https://github.com/Kong/kubernetes-ingress-controller) support for serving Kubernetes.
-
-[![][kong-benefits]][kong-url]
-
-### Plugin Hub
-Plugins provide advanced functionality that extends the use of the Gateway. Many of the Kong Inc. and community-developed plugins like AWS Lambda, Correlation ID, and Response Transformer are showcased at the [Plugin Hub](https://docs.konghq.com/hub/).
-
-Contribute to the Plugin Hub and ensure your next innovative idea is published and available to the broader community!
-
-## Contributing
-
-We ❤️ pull requests, and we’re continually working hard to make it as easy as possible for developers to contribute. Before beginning development with the Kong API Gateway, please familiarize yourself with the following developer resources:
-- Community Pledge ([COMMUNITY_PLEDGE.md](COMMUNITY_PLEDGE.md)) for our pledge to interact with you, the open source community.
-- Contributor Guide ([CONTRIBUTING.md](CONTRIBUTING.md)) to learn about how to contribute to Kong.
-- Development Guide ([DEVELOPER.md](DEVELOPER.md)): Setting up your development environment.
-- [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) and [COPYRIGHT](COPYRIGHT)
-
-Use the [Plugin Development Guide](https://docs.konghq.com/latest/plugin-development/) for building new and creative plugins, or browse the online version of Kong's source code documentation in the [Plugin Development Kit (PDK) Reference](https://docs.konghq.com/latest/pdk/). Developers can build plugins in [Lua](https://docs.konghq.com/gateway/latest/plugin-development/), [Go](https://docs.konghq.com/gateway-oss/latest/external-plugins/#developing-go-plugins) or [JavaScript](https://docs.konghq.com/gateway-oss/latest/external-plugins/#developing-javascript-plugins).
-
-## Releases
-
-Please see the [Changelog](CHANGELOG.md) for more details about a given release. The [SemVer Specification](https://semver.org) is followed when versioning Gateway releases.
-
-## Join the Community
-
-- Check out the [docs](https://docs.konghq.com/)
-- Join the [Kong discussions forum](https://github.com/Kong/kong/discussions)
-- Join the Kong discussions at the Kong Nation forum: [https://discuss.konghq.com/](https://discuss.konghq.com/)
-- Join our [Community Slack](http://kongcommunity.slack.com/)
-- Read up on the latest happenings at our [blog](https://konghq.com/blog/)
-- Follow us on [X](https://x.com/thekonginc)
-- Subscribe to our [YouTube channel](https://www.youtube.com/c/KongInc/videos)
-- Visit our [homepage](https://konghq.com/) to learn more
-
-## Konnect Cloud
-
-Kong Inc. offers commercial subscriptions that enhance the Kong API Gateway in a variety of ways. Customers of Kong's [Konnect Cloud](https://konghq.com/kong-konnect/) subscription take advantage of additional gateway functionality, commercial support, and access to Kong's managed (SaaS) control plane platform. The Konnect Cloud platform features include real-time analytics, a service catalog, developer portals, and so much more! [Get started](https://konghq.com/products/kong-konnect/register?utm_medium=Referral&utm_source=Github&utm_campaign=kong-gateway&utm_content=konnect-promo-in-gateway&utm_term=get-started) with Konnect Cloud.
-
-## License
-
-```
-Copyright 2016-2024 Kong Inc.
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto"><a href="https://konghq.com/" rel="nofollow"><img src="https://camo.githubusercontent.com/90e483a24100f6e2bea1af387c0f3bbccf3a10de92dd0467ebf1eaa0015e03f6/68747470733a2f2f6b6f6e6768712e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031382f30352f6b6f6e672d6c6f676f2d6769746875622d726561646d652e706e67" alt="" data-canonical-src="https://konghq.com/wp-content/uploads/2018/05/kong-logo-github-readme.png" style="max-width: 100%;"></a></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7a1ae791b4c093dc412bd16b9b843fd627b2db820b5b9c8d87d06dd9b14d7d00/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f4b6f6e672f6b6f6e673f7374796c653d666c61742d737175617265"><img src="https://camo.githubusercontent.com/7a1ae791b4c093dc412bd16b9b843fd627b2db820b5b9c8d87d06dd9b14d7d00/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f4b6f6e672f6b6f6e673f7374796c653d666c61742d737175617265" alt="星星" data-canonical-src="https://img.shields.io/github/stars/Kong/kong?style=flat-square" style="max-width: 100%;"></a> <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/731ae856dc4e22f0d0124493caad7ab1e92a57db361c6dbcc082462976d0e0d0/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f636f6d6d69742d61637469766974792f6d2f4b6f6e672f6b6f6e673f7374796c653d666c61742d737175617265"><img src="https://camo.githubusercontent.com/731ae856dc4e22f0d0124493caad7ab1e92a57db361c6dbcc082462976d0e0d0/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f636f6d6d69742d61637469766974792f6d2f4b6f6e672f6b6f6e673f7374796c653d666c61742d737175617265" alt="GitHub 提交活动" data-canonical-src="https://img.shields.io/github/commit-activity/m/Kong/kong?style=flat-square" style="max-width: 100%;"></a> <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5ba07fe4b6719031f53834103e3faac15d1625b348c6374d24422f5235478c25/68747470733a2f2f696d672e736869656c64732e696f2f646f636b65722f70756c6c732f5f2f6b6f6e673f7374796c653d666c61742d737175617265"><img src="https://camo.githubusercontent.com/5ba07fe4b6719031f53834103e3faac15d1625b348c6374d24422f5235478c25/68747470733a2f2f696d672e736869656c64732e696f2f646f636b65722f70756c6c732f5f2f6b6f6e673f7374796c653d666c61742d737175617265" alt="Docker 拉取" data-canonical-src="https://img.shields.io/docker/pulls/_/kong?style=flat-square" style="max-width: 100%;"></a> <a href="https://github.com/Kong/kong/actions"><img src="https://github.com/Kong/kong/workflows/Build%20&amp;%20Test/badge.svg" alt="构建状态" style="max-width: 100%;"></a> <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4a9a8aa8cc68249a2f2720214270fa2f9a87a1c2ecd88bd5089efe5fd92f6e6c/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f762f72656c656173652f4b6f6e672f6b6f6e673f636f6c6f723d677265656e266c6162656c3d56657273696f6e267374796c653d666c61742d737175617265"><img src="https://camo.githubusercontent.com/4a9a8aa8cc68249a2f2720214270fa2f9a87a1c2ecd88bd5089efe5fd92f6e6c/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f762f72656c656173652f4b6f6e672f6b6f6e673f636f6c6f723d677265656e266c6162656c3d56657273696f6e267374796c653d666c61742d737175617265" alt="版本" data-canonical-src="https://img.shields.io/github/v/release/Kong/kong?color=green&amp;label=Version&amp;style=flat-square" style="max-width: 100%;"></a>  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/03355481403543819f94c0c3d0b805604e0c903842d8482195a5d96b3902a040/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d417061636865253230322e302d626c75653f7374796c653d666c61742d737175617265"><img src="https://camo.githubusercontent.com/03355481403543819f94c0c3d0b805604e0c903842d8482195a5d96b3902a040/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d417061636865253230322e302d626c75653f7374796c653d666c61742d737175617265" alt="执照" data-canonical-src="https://img.shields.io/badge/License-Apache%202.0-blue?style=flat-square" style="max-width: 100%;"></a>  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/10d77688e3d9d4775811338b6f5ed919aa6ea70acd418b94ff0ebe8e47f83c1e/68747470733a2f2f696d672e736869656c64732e696f2f747769747465722f666f6c6c6f772f7468656b6f6e67696e633f7374796c653d736f6369616c"><img src="https://camo.githubusercontent.com/10d77688e3d9d4775811338b6f5ed919aa6ea70acd418b94ff0ebe8e47f83c1e/68747470733a2f2f696d672e736869656c64732e696f2f747769747465722f666f6c6c6f772f7468656b6f6e67696e633f7374796c653d736f6369616c" alt="推特关注" data-canonical-src="https://img.shields.io/twitter/follow/thekonginc?style=social" style="max-width: 100%;"></a></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kong</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kong API 网关</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个云原生、与平台无关、可扩展的 API 网关，以其高性能和通过插件的可扩展性而闻名。它还提供先进的人工智能功能和多法学硕士支持。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过提供代理、路由、负载平衡、健康检查、身份验证（等等）功能</font></font><a href="#features"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Kong 可以作为轻松编排微服务或传统 API 流量的中央层。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kong 借助其官方</font></font><a href="https://github.com/Kong/kubernetes-ingress-controller"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kubernetes Ingress Controller</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 Kubernetes 上原生运行。</font></font></p>
+<hr>
+<p dir="auto"><a href="https://konghq.com/install/#kong-community" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://docs.konghq.com" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://github.com/Kong/kong/discussions"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">讨论</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://discuss.konghq.com" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">论坛</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://konghq.com/blog" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">博客</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font><a href="https://hub.docker.com/r/kong/kong/tags" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">构建</font></font></a></p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门</font></font></h2><a id="user-content-getting-started" class="anchor" aria-label="永久链接：开始使用" href="#getting-started"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">让我们在 5 分钟内通过向 API 添加身份验证来测试 Kong。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们建议通过以下说明使用 docker-compose 发行版，但</font><font style="vertical-align: inherit;">如果您希望在无数据库模式下运行 Kong API 网关，也可以使用</font></font><a href="https://docs.konghq.com/gateway/latest/install/docker/#install-kong-gateway-in-db-less-mode" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">docker 安装过程。</font></font></a><font style="vertical-align: inherit;"></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无论您是在云中、裸机上还是使用容器运行，您都可以在我们的</font></font><a href="https://konghq.com/install/#kong-community" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">官方安装</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">页面上找到每个受支持的发行版。</font></font></p>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">首先，克隆 Docker 存储库并导航到 compose 文件夹。</font></font></li>
+</ol>
+<div class="highlight highlight-source-batchfile notranslate position-relative overflow-auto" dir="auto"><pre>  $ git clone https://github.com/Kong/docker-kong
+  $ <span class="pl-k">cd</span> docker-kong/compose/</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="  $ git clone https://github.com/Kong/docker-kong
+  $ cd docker-kong/compose/" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<ol start="2" dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用以下命令启动网关堆栈：</font></font></li>
+</ol>
+<div class="highlight highlight-source-batchfile notranslate position-relative overflow-auto" dir="auto"><pre>  $ KONG_DATABASE=postgres docker-compose --profile database up</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="  $ KONG_DATABASE=postgres docker-compose --profile database up" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网关现在可在本地主机上的以下端口上使用：</font></font></p>
+<ul dir="auto">
+<li><code>:8000</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- 通过 Kong 将流量发送到您的服务</font></font></li>
+<li><code>:8001</code><font style="vertical-align: inherit;"><a href="https://github.com/kong/deck"><font style="vertical-align: inherit;">- 使用管理 API 或通过decK</font></a><font style="vertical-align: inherit;">配置 Kong</font></font><a href="https://github.com/kong/deck"><font style="vertical-align: inherit;"></font></a></li>
+<li><code>:8002</code><font style="vertical-align: inherit;"><a href="http://localhost:8002" rel="nofollow"><font style="vertical-align: inherit;">- 在localhost:8002</font></a><font style="vertical-align: inherit;">上访问 Kong 的管理 Web UI ( </font></font><a href="https://github.com/Kong/kong-manager"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kong Manager</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> )</font></font><a href="http://localhost:8002" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">接下来，按照</font></font><a href="https://docs.konghq.com/gateway-oss/latest/getting-started/configuring-a-service/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快速入门指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解网关功能。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特征</font></font></h2><a id="user-content-features" class="anchor" aria-label="永久链接：特点" href="#features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过集中组织所有服务中的通用 API 功能，Kong API 网关为工程团队创造了更多自由，让他们能够专注于最重要的挑战。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kong 的主要功能包括：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高级路由、负载平衡、运行状况检查 - 所有这些都可以通过 RESTful 管理 API 或声明性配置进行配置。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 JWT、基本身份验证、OAuth、ACL 等方法对 API 进行身份验证和授权。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对 L4 或 L7 流量的代理、SSL/TLS 终止和连接支持。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于实施流量控制、速率限制、请求/解析转换、日志记录、监控以及包括插件开发人员中心的插件。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于 AI 流量的插件，支持多 LLM 实施和无代码 AI 用例，具有先进的 AI 提示工程、AI 可观察性、AI 安全性等。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">复杂的部署模型，例如声明式无数据库部署和混合部署（控制平面/数据平面分离），无需任何供应商锁定。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于服务 Kubernetes 的</font><font style="vertical-align: inherit;">本机</font></font><a href="https://github.com/Kong/kubernetes-ingress-controller"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入口控制器支持。</font></font></a><font style="vertical-align: inherit;"></font></li>
+</ul>
+<p dir="auto"><a href="https://konghq.com/" rel="nofollow"><img src="https://camo.githubusercontent.com/e959690fb88421407e30a5598c1262f2758a65d28537e7628faf217ad5140622/68747470733a2f2f6b6f6e6768712e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031382f30352f6b6f6e672d62656e65666974732d6769746875622d726561646d652e706e67" alt="" data-canonical-src="https://konghq.com/wp-content/uploads/2018/05/kong-benefits-github-readme.png" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件中心</font></font></h3><a id="user-content-plugin-hub" class="anchor" aria-label="永久链接：插件中心" href="#plugin-hub"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件提供了扩展网关用途的高级功能。许多 Kong Inc. 和社区开发的插件（例如 AWS Lambda、Correlation ID 和 Response Transformer）都在</font></font><a href="https://docs.konghq.com/hub/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件中心</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">展示。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为插件中心做出贡献，确保您的下一个创新想法得以发布并提供给更广泛的社区！</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献</font></font></h2><a id="user-content-contributing" class="anchor" aria-label="永久链接：贡献" href="#contributing"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们❤️拉取请求，并且我们不断努力让开发人员尽可能轻松地做出贡献。在开始使用 Kong API 网关进行开发之前，请熟悉以下开发人员资源：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">社区承诺 ( </font></font><a href="https://github.com/Kong/kong/blob/master/COMMUNITY_PLEDGE.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">COMMUNITY_PLEDGE.md</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> )，用于我们与开源社区互动的承诺。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献者指南 ( </font></font><a href="https://github.com/Kong/kong/blob/master/CONTRIBUTING.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CONTRIBUTING.md</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ) 了解如何为 Kong 做出贡献。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发指南 ( </font></font><a href="/Kong/kong/blob/master/DEVELOPER.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">DEVELOPER.md</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> )：设置您的开发环境。</font></font></li>
+<li><a href="/Kong/kong/blob/master/CODE_OF_CONDUCT.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">行为准则</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><a href="https://github.com/Kong/kong/blob/master/COPYRIGHT"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版权</font></font></a></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用</font></font><a href="https://docs.konghq.com/latest/plugin-development/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件开发指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">构建新的创意插件，或浏览</font></font><a href="https://docs.konghq.com/latest/pdk/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件开发工具包 (PDK) 参考</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中 Kong 源代码文档的在线版本。开发人员可以使用</font></font><a href="https://docs.konghq.com/gateway/latest/plugin-development/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lua</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://docs.konghq.com/gateway-oss/latest/external-plugins/#developing-go-plugins" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Go</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><a href="https://docs.konghq.com/gateway-oss/latest/external-plugins/#developing-javascript-plugins" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">JavaScript</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">构建插件</font><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布</font></font></h2><a id="user-content-releases" class="anchor" aria-label="永久链接：发布" href="#releases"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关给定版本的更多详细信息，</font><font style="vertical-align: inherit;">请参阅</font></font><a href="/Kong/kong/blob/master/CHANGELOG.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">变更日志</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。对 Gateway 版本进行版本控制时遵循</font><font style="vertical-align: inherit;">SemVer</font></font><a href="https://semver.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">规范。</font></font></a><font style="vertical-align: inherit;"></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入社区</font></font></h2><a id="user-content-join-the-community" class="anchor" aria-label="永久链接：加入社区" href="#join-the-community"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查看</font></font><a href="https://docs.konghq.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入</font></font><a href="https://github.com/Kong/kong/discussions"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kong 论坛</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入 Kong Nation 论坛上的 Kong 讨论：</font></font><a href="https://discuss.konghq.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://discuss.konghq.com/</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入我们的</font></font><a href="http://kongcommunity.slack.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Slack 社区</font></font></a></li>
+<li><font style="vertical-align: inherit;"><a href="https://konghq.com/blog/" rel="nofollow"><font style="vertical-align: inherit;">在我们的博客</font></a><font style="vertical-align: inherit;">上了解最新动态</font></font><a href="https://konghq.com/blog/" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+<li><font style="vertical-align: inherit;"><a href="https://x.com/thekonginc" rel="nofollow"><font style="vertical-align: inherit;">在X</font></a><font style="vertical-align: inherit;">上关注我们</font></font><a href="https://x.com/thekonginc" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">订阅我们的</font></font><a href="https://www.youtube.com/c/KongInc/videos" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">YouTube 频道</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问我们的</font></font><a href="https://konghq.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">主页</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以了解更多信息</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">连接云</font></font></h2><a id="user-content-konnect-cloud" class="anchor" aria-label="永久链接：Konnect 云" href="#konnect-cloud"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kong Inc. 提供商业订阅，以多种方式增强 Kong API 网关。 Kong </font></font><a href="https://konghq.com/kong-konnect/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Konnect Cloud</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">订阅的客户可以利用额外的网关功能、商业支持以及对 Kong 托管 (SaaS) 控制平面平台的访问。 Konnect 云平台功能包括实时分析、服务目录、开发人员门户等等！</font></font><a href="https://konghq.com/products/kong-konnect/register?utm_medium=Referral&amp;utm_source=Github&amp;utm_campaign=kong-gateway&amp;utm_content=konnect-promo-in-gateway&amp;utm_term=get-started" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开始</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 Konnect Cloud。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></h2><a id="user-content-license" class="anchor" aria-label="永久链接：许可证" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>Copyright 2016-2024 Kong Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -108,14 +99,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-```
-
-[kong-url]: https://konghq.com/
-[kong-logo]: https://konghq.com/wp-content/uploads/2018/05/kong-logo-github-readme.png
-[kong-benefits]: https://konghq.com/wp-content/uploads/2018/05/kong-benefits-github-readme.png
-[kong-master-builds]: https://hub.docker.com/r/kong/kong/tags
-[badge-action-url]: https://github.com/Kong/kong/actions
-[badge-action-image]: https://github.com/Kong/kong/workflows/Build%20&%20Test/badge.svg
-
-[busted]: https://github.com/Olivine-Labs/busted
-[luacheck]: https://github.com/mpeterv/luacheck
+</code></pre><div class="zeroclipboard-container">
+     
+  </div></div>
+</article></div>
